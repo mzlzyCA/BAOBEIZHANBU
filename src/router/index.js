@@ -1,23 +1,60 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
+const CountDown = () => import('../views/CountDown.vue')
+const DropCoffeeBeans = () => import('../views/DropCoffeeBeans.vue')
+const StartGame = () => import('../views/StartGame.vue')
+const StartPage = () => import('../views/StartPage.vue')
+const OutCome = () => import('../views/OutCome.vue')
+// const Profile = () => import('../views/profile/profile')
+
+
+// Vue.use(VueRouter)
+// import('@/views/page1.vue').then((module) => {
+//     console.log('okok');
+//   }).catch((error) => {
+//     console.log('bad');
+// });
+
+const routes = [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView
+        path:'/',
+        redirect:'/startgame'    
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+        path: '/countdown',
+        // name: 'CountDown',
+        component: CountDown,
+        // hidden:true
+    },
+    {
+        path: '/dropcoffeebeans',
+        // name: 'DropCoffeeBeans',
+        component: DropCoffeeBeans,
+        // hidden:true
+    },
+    {
+        path: '/startgame',
+        // name: 'StartGame',
+        component: StartGame,
+        // hidden:true
+    },
+    {
+        path: '/startpage',
+        // name: 'StartPage',
+        component: StartPage,
+        // hidden:true
+    },
+    {
+        path: '/outcome',
+        // name: 'OutCome',
+        component: OutCome,
+        // hidden:true
     }
-  ]
+    
+]
+const router  = new createRouter({
+    history:createWebHistory(),
+    routes,
 })
 
 export default router
