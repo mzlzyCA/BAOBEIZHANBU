@@ -10,7 +10,7 @@ import { VantResolver } from '@vant/auto-import-resolver';
 
 
 export default defineConfig({
-  base:"./",
+  base:"./BAOBEIZHANBU",
   plugins: [
     vue(),
   //   vitePluginVueSvgIcons({ 
